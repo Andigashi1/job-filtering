@@ -4,6 +4,9 @@ import { data } from "./data.js";
 import remove from "./assets/images/icon-remove.svg";
 
 function App() {
+
+  // Create a filter state object
+
   const [filters, setFilters] = useState({
     role: "",
     level: "",
@@ -11,9 +14,13 @@ function App() {
     tools: [],
   });
 
+  //Add filters to the state object based on the category(role level languages or tools) and their values
+
   const addFilters = (category, value) => {
     setFilters((prev) => ({
+      //return all the previous filters
       ...prev,
+      //Check if category is an array and if it already includes the filter
       [category]: Array.isArray(prev[category])
         ? prev[category].includes(value)
           ? prev[category]
@@ -21,6 +28,8 @@ function App() {
         : value,
     }));
   };
+
+  //Remove the filters
 
   const removeFilters = (category, value) => {
     setFilters((prev) => ({
@@ -30,6 +39,8 @@ function App() {
         : "",
     }));
   };
+
+  //Filter the imported data based on the filters on the state
 
   const filteredJobs = data.filter((job) => {
     return (
@@ -45,6 +56,9 @@ function App() {
   return (
     <div className="font-display bg-background flex flex-col items-center min-h-screen">
       <div className="w-full h-48 relative bg-primary bg-[url('./assets/images/bg-header-mobile.svg')] md:bg-[url('./assets/images/bg-header-desktop.svg')] bg-no-repeat bg-cover">
+        
+        {/* Div appears only when there is a filter selected */}
+
         {(filters.role ||
           filters.level ||
           filters.languages.length > 0 ||
@@ -97,7 +111,7 @@ function App() {
                 </section>
               ))}
             </div>
-
+            
             <p
               onClick={() =>
                 setFilters({

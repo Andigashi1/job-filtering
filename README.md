@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: (https://your-solution-url.com)
+- Solution URL: (https://github.com/Andigashi1/job-filtering)
 - Live Site URL: (https://your-live-site-url.com)
 
 ## My process

@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 function Card(props) {
   return (
     <div
@@ -50,5 +52,21 @@ function Card(props) {
     </div>
   );
 }
+
+Card.propTypes = {
+  company: PropTypes.string.isRequired,
+  logo: PropTypes.string.isRequired,
+  new: PropTypes.bool,
+  featured: PropTypes.bool,
+  position: PropTypes.string.isRequired,
+  role: PropTypes.string.isRequired,
+  level: PropTypes.string.isRequired,
+  postedAt: PropTypes.string.isRequired,
+  contract: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  languages: PropTypes.arrayOf(PropTypes.string).isRequired,
+  tools: PropTypes.arrayOf(PropTypes.string).isRequired,
+  addFilters: PropTypes.func.isRequired,
+};
 
 export default Card;
